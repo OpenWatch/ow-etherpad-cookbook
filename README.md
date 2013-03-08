@@ -1,9 +1,7 @@
 ow_etherpad Cookbook
 ====================
-TODO: Enter the cookbook description here.
+Sets up the Etherpad-Lite installation specific to OpenWatch's configuration.
 
-e.g.
-This cookbook makes your favorite breakfast sandwhich.
 
 Requirements
 ------------
@@ -11,7 +9,7 @@ TODO: List your cookbook requirements. Be sure to include any requirements this 
 
 e.g.
 #### packages
-- `toaster` - ow_etherpad needs toaster to brown your bagel.
+- `etherpad-lite` - ow_etherpad needs toaster to brown your bagel.
 
 Attributes
 ----------
