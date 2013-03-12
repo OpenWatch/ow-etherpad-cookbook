@@ -7,11 +7,7 @@
 # Licensed under AGPLv3
 #
 
-include_attribute "etherpad-lite"
-include_attribute "ow_python"
-
 secrets = Chef::EncryptedDataBagItem.load(node['ow_etherpad']['secret_databag_name'] , node['ow_etherpad']['secret_databag_item_name'])
-db_secrets = Chef::EncryptedDataBagItem.load("secrets", "ow_python")
 
 db_name = 'etherpad'
 
@@ -19,9 +15,9 @@ db_name = 'etherpad'
 postgresql_database db_name do
   connection ({
         :host => "127.0.0.1", 
-        :port => node['ow_python']['db_port'], 
-        :username => node['ow_python']['db_user'], 
-        :password => db_secrets['db_user_password']})
+        :port => node['postgresql']['config']['port'], 
+        :username => "postgres", 
+        :password => node['postgresql']['password']['postgres']})
   action :create
 end
 
