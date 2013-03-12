@@ -8,12 +8,25 @@
 #
 
 include_attribute "etherpad-lite"
+include_attribute "ow_python"
 
 secrets = Chef::EncryptedDataBagItem.load(node['ow_etherpad']['secret_databag_name'] , node['ow_etherpad']['secret_databag_item_name'])
+db_secrets = Chef::EncryptedDataBagItem.load("secrets", "ow_python")
 
+db_name = 'etherpad'
+
+# Setup postgresql database
+postgresql_database db_name do
+  connection ({
+        :host => "127.0.0.1", 
+        :port => node['ow_python']['db_port'], 
+        :username => node['ow_python']['db_user'], 
+        :password => db_secrets['db_user_password']})
+  action :create
+end
 
 node.set['etherpad-lite']['default_text'] = "This is an OpenWatch collaborative investigation pad. Put your findings here!\n\nThis is deep and wide, document-based journalism, so don't be afraid to post your findings in their entirety.\n\nWhat happened?\n\nWho is involved, and what do they have to say about it?\n\nWhy are they saying that?\n\nWhat's going to happen next?\n\n======== CONTACTS ==========\n\n * Name:  \n * Title:  \n * Phone number:  \n * Email:  \n * Facebook:  \n * Twitter:  \n\nDemand marvelous secrets!"
-node.set['etherpad-lite']['db_name'] = 'etherpad'
+node.set['etherpad-lite']['db_name'] = db_name
 node.set['etherpad-lite']['db_type'] = 'postgres'
 node.set['etherpad-lite']['db_password'] = node['postgresql']['password']['postgres']
 node.set['etherpad-lite']['etherpad_api_key'] = secrets['APIKEY']
