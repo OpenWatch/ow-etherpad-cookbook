@@ -30,6 +30,8 @@ node.set['etherpad-lite']['admin_password'] = secrets['admin_password']
 node.set['etherpad-lite']['etherpad_git_repo_url'] = 'git://github.com/OpenWatch/etherpad-lite.git'
 node.set['etherpad-lite']['ssl_key_path'] = '/srv/ssl/myserver.key'
 node.set['etherpad-lite']['ssl_cert_path'] = '/srv/ssl/star_openwatch_net2.crt'
+node.set['etherpad-lite']['ssl_enabled'] = true
+node.set['etherpad-lite']['admin_enabled'] = true
 
 include_recipe "etherpad-lite"
 
