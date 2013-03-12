@@ -28,11 +28,12 @@ node.set['etherpad-lite']['db_password'] = node['postgresql']['password']['postg
 node.set['etherpad-lite']['etherpad_api_key'] = secrets['APIKEY']
 node.set['etherpad-lite']['admin_password'] = secrets['admin_password']
 node.set['etherpad-lite']['etherpad_git_repo_url'] = 'git://github.com/OpenWatch/etherpad-lite.git'
-node.set['etherpad-lite']['ssl_key_path'] = '/srv/ssl/myserver.key'
-node.set['etherpad-lite']['ssl_cert_path'] = '/srv/ssl/star_openwatch_net2.crt'
+node.set['etherpad-lite']['ssl_key_path'] = '/srv/ssl/star_openwatch_net.key'
+node.set['etherpad-lite']['ssl_cert_path'] = '/srv/ssl/star_openwatch_net.crt'
 node.set['etherpad-lite']['ssl_enabled'] = true
 node.set['etherpad-lite']['admin_enabled'] = true
-node.set['etherpad-lite']['port_number'] = 8080
+node.set['etherpad-lite']['port_number'] = 9001
+node.set['etherpad-lite']['domain'] = 'chef.openwatch.net'
 
 
 include_recipe "etherpad-lite"
