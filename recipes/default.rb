@@ -21,7 +21,7 @@ postgresql_database db_name do
   action :create
 end
 
-node.set['etherpad-lite']['default_text'] = "This is an OpenWatch collaborative investigation pad. Put your findings here!\n\nThis is deep and wide, document-based journalism, so don't be afraid to post your findings in their entirety.\n\nWhat happened?\n\nWho is involved, and what do they have to say about it?\n\nWhy are they saying that?\n\nWhat's going to happen next?\n\n======== CONTACTS ==========\n\n * Name:  \n * Title:  \n * Phone number:  \n * Email:  \n * Facebook:  \n * Twitter:  \n\nDemand marvelous secrets!"
+node.set['etherpad-lite']['default_text'] = "This is an OpenWatch collaborative investigation pad. Put your findings here!\\n\\nThis is deep and wide, document-based journalism, so don't be afraid to post your findings in their entirety.\\n\\nWhat happened?\\n\\nWho is involved, and what do they have to say about it?\\n\\nWhy are they saying that?\\n\\nWhat's going to happen next?\\n\\n======== CONTACTS ==========\\n\\n * Name:  \\n * Title:  \\n * Phone number:  \\n * Email:  \\n * Facebook:  \\n * Twitter:  \\n\\nDemand marvelous secrets!"
 node.set['etherpad-lite']['db_name'] = db_name
 node.set['etherpad-lite']['db_type'] = 'postgres'
 node.set['etherpad-lite']['db_password'] = node['postgresql']['password']['postgres']
