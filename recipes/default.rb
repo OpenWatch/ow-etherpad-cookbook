@@ -33,7 +33,7 @@ node.set['etherpad-lite']['ssl_cert_path'] = '/srv/ssl/star_openwatch_net.crt'
 node.set['etherpad-lite']['ssl_enabled'] = true
 node.set['etherpad-lite']['admin_enabled'] = true
 node.set['etherpad-lite']['port_number'] = 9001
-node.set['etherpad-lite']['domain'] = 'chef.openwatch.net'
+node.set['etherpad-lite']['domain'] = 'pad.openwatch.net'
 
 
 include_recipe "etherpad-lite"
